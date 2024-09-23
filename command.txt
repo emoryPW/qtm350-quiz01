@@ -1,0 +1,99 @@
+(base) xipuwang@Philips-MacBook-Pro ~ % git clone https://github.com/danilofreire/qtm350-quiz01
+Cloning into 'qtm350-quiz01'...
+remote: Enumerating objects: 14, done.
+remote: Counting objects: 100% (14/14), done.
+remote: Compressing objects: 100% (9/9), done.
+remote: Total 14 (delta 2), reused 10 (delta 1), pack-reused 0 (from 0)
+Unpacking objects: 100% (14/14), done.
+(base) xipuwang@Philips-MacBook-Pro ~ % cd qtm350-quiz01
+(base) xipuwang@Philips-MacBook-Pro qtm350-quiz01 % touch commands.txt
+(base) xipuwang@Philips-MacBook-Pro qtm350-quiz01 % git branch features-update
+(base) xipuwang@Philips-MacBook-Pro qtm350-quiz01 % git checkout features-update
+Switched to branch 'features-update'
+(base) xipuwang@Philips-MacBook-Pro qtm350-quiz01 % mkdir reports
+(base) xipuwang@Philips-MacBook-Pro qtm350-quiz01 % touch reports/summary.md
+(base) xipuwang@Philips-MacBook-Pro qtm350-quiz01 % git add reports
+(base) xipuwang@Philips-MacBook-Pro qtm350-quiz01 % git status
+On branch features-update
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   reports/summary.md
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        commands.txt
+
+(base) xipuwang@Philips-MacBook-Pro qtm350-quiz01 % git commit -m "Add reports directory"
+[features-update 862fd63] Add reports directory
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 reports/summary.md
+(base) xipuwang@Philips-MacBook-Pro qtm350-quiz01 % 
+(base) xipuwang@Philips-MacBook-Pro qtm350-quiz01 % touch reports/file{1..3}.txt                                                                  
+(base) xipuwang@Philips-MacBook-Pro qtm350-quiz01 % ls
+README.md       commands.txt    data            docs            reports         scripts
+(base) xipuwang@Philips-MacBook-Pro qtm350-quiz01 % mv ./data/raw-data.csv ./data/input-data.csv
+(base) xipuwang@Philips-MacBook-Pro qtm350-quiz01 % mkdir scripts/backup && cp -r ./scripts/*/py ./scripts/backup
+zsh: no matches found: ./scripts/*/py
+(base) xipuwang@Philips-MacBook-Pro qtm350-quiz01 %  mkdir scripts/backup && cp -r ./scripts/*.py ./scripts/backup
+mkdir: scripts/backup: File exists
+(base) xipuwang@Philips-MacBook-Pro qtm350-quiz01 % rmdir scripts/backup
+(base) xipuwang@Philips-MacBook-Pro qtm350-quiz01 %  mkdir scripts/backup && cp -r ./scripts/*.py ./scripts/backup
+(base) xipuwang@Philips-MacBook-Pro qtm350-quiz01 % rm docs/documentation.md
+(base) xipuwang@Philips-MacBook-Pro qtm350-quiz01 % git add qtm350-quiz01
+fatal: pathspec 'qtm350-quiz01' did not match any files
+(base) xipuwang@Philips-MacBook-Pro qtm350-quiz01 % git add scripts
+(base) xipuwang@Philips-MacBook-Pro qtm350-quiz01 % git push
+fatal: The current branch features-update has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin features-update
+
+(base) xipuwang@Philips-MacBook-Pro qtm350-quiz01 %  git commit -m "Update project files"
+[features-update e4e1dbc] Update project files
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 scripts/backup/01-setup.py
+ create mode 100644 scripts/backup/02-data-cleaning.py
+ create mode 100644 scripts/backup/03-data-modelling.py
+(base) xipuwang@Philips-MacBook-Pro qtm350-quiz01 % touch .gitignore
+(base) xipuwang@Philips-MacBook-Pro qtm350-quiz01 % "temp/
+dataset0?.csv" >> .gitignore
+zsh: no such file or directory: temp/\ndataset0?.csv
+(base) xipuwang@Philips-MacBook-Pro qtm350-quiz01 % echo "temp/
+dataset0?.csv" >> .gitignore
+(base) xipuwang@Philips-MacBook-Pro qtm350-quiz01 % cat .gitignore
+temp/
+dataset0?.csv
+(base) xipuwang@Philips-MacBook-Pro qtm350-quiz01 % git add .gitignore && git commit -m ""Add .gitignore file"."
+error: pathspec 'file.' did not match any file(s) known to git.
+(base) xipuwang@Philips-MacBook-Pro qtm350-quiz01 % git add ./.gitignore && git commit -m ""Add .gitignore file"."
+error: pathspec 'file.' did not match any file(s) known to git.
+(base) xipuwang@Philips-MacBook-Pro qtm350-quiz01 % git add .gitignore && git commit -m "Add .gitignore file."
+[features-update b5f3ff7] Add .gitignore file.
+ 1 file changed, 2 insertions(+)
+ create mode 100644 .gitignore
+(base) xipuwang@Philips-MacBook-Pro qtm350-quiz01 % git checkout main
+D       data/raw-data.csv
+D       docs/documentation.md
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+(base) xipuwang@Philips-MacBook-Pro qtm350-quiz01 % git merge feature-update
+merge: feature-update - not something we can merge
+(base) xipuwang@Philips-MacBook-Pro qtm350-quiz01 % git merge features-update
+Updating 651c914..b5f3ff7
+Fast-forward
+ .gitignore                          | 2 ++
+ reports/summary.md                  | 0
+ scripts/backup/01-setup.py          | 0
+ scripts/backup/02-data-cleaning.py  | 0
+ scripts/backup/03-data-modelling.py | 0
+ 5 files changed, 2 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 reports/summary.md
+ create mode 100644 scripts/backup/01-setup.py
+ create mode 100644 scripts/backup/02-data-cleaning.py
+ create mode 100644 scripts/backup/03-data-modelling.py
+(base) xipuwang@Philips-MacBook-Pro qtm350-quiz01 % git remote add origin https://github.com/emoryPW/qtm350-quiz01 
+(base) xipuwang@Philips-MacBook-Pro qtm350-quiz01 % git branch -d features-update
+(base) xipuwang@Philips-MacBook-Pro qtm350-quiz01 % git push origin --delete features-update
